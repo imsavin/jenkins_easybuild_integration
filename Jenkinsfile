@@ -15,8 +15,8 @@ pipeline {
                 source ${LMOD_PATH}
                 python3 -m venv eb_check
                 source eb_check/bin/activate
-                pip3 install easybuild-framework easybuild-easyblocks pycodestyle python-graph-core python-graph-dot
-                export PYTHONPATH=${WORKSPACE}
+                pip3 install pycodestyle python-graph-core python-graph-dot
+                export PYTHONPATH=${WORKSPACE}/easyconfig
                 module load EasyBuild
                 python3 -m test.easyconfigs.suite
                 """
