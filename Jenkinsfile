@@ -5,7 +5,7 @@ pipeline {
         stage('EasyBuild Tests') {
         environment {
     TEST_EASYBUILD_PREFIX = "/opt/EasyBuild"
-    TEST_EASYBUILD_ROBOT_PATHS = "${WORKSPACE}"
+    TEST_EASYBUILD_ROBOT_PATHS = "${WORKSPACE}/easyconfig"
     MODULEPATH = "${TEST_EASYBUILD_PREFIX}/modules/all"
     LMOD_PATH = "/opt/lmod/lmod/init/bash"
     }
@@ -33,4 +33,4 @@ pipeline {
             }
         }
     }
-}
+ }
