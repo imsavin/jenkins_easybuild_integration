@@ -14,7 +14,7 @@ pipeline {
                 . ${LMOD_PATH}
                 export PYTHONPATH=${WORKSPACE}
                 module load EasyBuild
-                python3 -m test.easyconfigs.sute
+                python3 -m test.easyconfigs.suite
                 """
             }
         }
