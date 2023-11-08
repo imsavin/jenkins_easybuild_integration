@@ -11,10 +11,16 @@ pipeline {
         stage('EasyBuild Tests') {
             steps {
                 sh"""
-                . ${LMOD_PATH}
+                source ${LMOD_PATH}
                 export PYTHONPATH=${WORKSPACE}
-                module load EasyBuild
-                eb -S M4
+                python3 -m venv eb_check
+                source eb_check/bin/activate
+                pip3 install easybuild-framework \ 
+                             easybuild-easyconfigs \ 
+                             pycodestyle \
+                             python-graph-core \
+                             python-graph-dot
+                
                 python3 -m test.easyconfigs.suite
                 """
             }
