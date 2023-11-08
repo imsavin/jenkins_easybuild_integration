@@ -20,7 +20,7 @@ pipeline {
                 export PYTHONPATH=${WORKSPACE}
                 module load EasyBuild
                 python3 -m test.easyconfigs.suite
-                ""
+                """
             }
         }
         stage('Run Style Tests') {
@@ -30,6 +30,7 @@ pipeline {
                 source eb_check/bin/activate
                 module load EasyBuild
                 eb --check-style easybuild/
+                """
                 }
         
         }
