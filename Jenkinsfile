@@ -28,7 +28,7 @@ pipeline {
                 sh"""
                 source ${LMOD_PATH}
                 source eb_check/bin/activate
-                module load EasyBuild
+                pip3 install easybuild-framework easybuild-easyblocks
                 eb --check-style easybuild/
                 """
                 }
