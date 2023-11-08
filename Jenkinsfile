@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    enviroment {
+    environment {
     EASYBUILD_PREFIX = "/opt/EasyBuild"
     EASYBUILD_ROBOT_PATHS = ${WORKSPACE}
     MODULEPATH = "${EASYBUILD_PREFIX}/modules/all"
