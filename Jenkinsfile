@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
     EASYBUILD_PREFIX = "/opt/EasyBuild"
-    EASYBUILD_ROBOT_PATHS = ${WORKSPACE}
+    EASYBUILD_ROBOT_PATHS = "${WORKSPACE}"
     MODULEPATH = "${EASYBUILD_PREFIX}/modules/all"
     LMOD_PATH = "/opt/lmod/lmod/init/bash"
     }
