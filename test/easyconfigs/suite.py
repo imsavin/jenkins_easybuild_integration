@@ -42,9 +42,9 @@ import test.easyconfigs.styletests as s
 from easybuild.base import fancylogger
 
 # disable all logging to significantly speed up tests
-#fancylogger.disableDefaultHandlers()
-#fancylogger.setLogLevelInfo()
-#fancylogger.logToScreen(enable=True)
+fancylogger.disableDefaultHandlers()
+fancylogger.setLogLevelError()
+
 # make sure no deprecated behaviour is triggered
 # os.environ['EASYBUILD_DEPRECATED'] = '10000'
 
