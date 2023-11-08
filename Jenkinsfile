@@ -12,10 +12,10 @@ pipeline {
             steps {
                 sh"""
                 source ${LMOD_PATH}
-                export PYTHONPATH=${WORKSPACE}
                 python3 -m venv eb_check
                 source eb_check/bin/activate
                 pip3 install easybuild-framework easybuild-easyblocks pycodestyle python-graph-core python-graph-dot
+                export PYTHONPATH=${WORKSPACE}
                 python3 -m test.easyconfigs.suite
                 """
             }
