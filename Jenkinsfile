@@ -1,44 +1,29 @@
 pipeline {
     agent any
+    parameters {
+        string(name: "easyconfig", defaultValue: "", trim: true, description: "введите наименование изиконфига")
+    }
+    
     environment {
-    TEST_EASYBUILD_PREFIX = "/opt/EasyBuild"
-    TEST_EASYBUILD_ROBOT_PATHS = "${WORKSPACE}/easyconfig"
-    MODULEPATH = "${TEST_EASYBUILD_PREFIX}/modules/all"
-    LMOD_PATH = "/opt/lmod/lmod/init/bash"
+        LMOD_PATH = "/opt/lmod/lmod/init/bash"
+        PREFIX = "/home/jenkins"
+        EASYBUILD_PREFIX = "${PREFIX}/easybuild"
+        SINGULARITY_CONTAINER = "${PREFIX}/containers/easybuild_container.sif
+        SINGULARITY_BIND = "${EASYBUILD_PREFIX}"
     }
     
     stages {
-        stage('Run EasyBuild Tests') {
-    
-
+        stage('Build') {
             steps {
                 sh"""
-                source ${LMOD_PATH}
-                python3 -m venv eb_check
-                source eb_check/bin/activate
-                pip3 install pycodestyle python-graph-core python-graph-dot
-                export PYTHONPATH=${WORKSPACE}
-                module load EasyBuild
-                python3 -m test.easyconfigs.suite
+                    source ${LMOD_PATH}
+                    module use ${EASYBUILD_PREFIX}/modules/all
+                    module load Apptainer
+                    singularity run ${SINGULARITY_CONTAINER} $params.easyconfig -r
                 """
             }
         }
-        stage('Run Style Tests') {
-            steps {
-                sh"""
-                source ${LMOD_PATH}
-                source eb_check/bin/activate
-                pip3 install easybuild-framework easybuild-easyblocks
-                eb --check-style easybuild/
-                """
-                }
         
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
     }
      post {
           always {
