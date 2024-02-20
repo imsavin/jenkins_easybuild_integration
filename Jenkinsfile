@@ -8,7 +8,7 @@ pipeline {
         LMOD_PATH = "/opt/lmod/lmod/init/bash"
         PREFIX = "/home/jenkins"
         EASYBUILD_PREFIX = "${PREFIX}/easybuild"
-        SINGULARITY_CONTAINER = "${PREFIX}/containers/easybuild_container.sif
+        SINGULARITY_CONTAINER = "${PREFIX}/containers/easybuild_container.sif"
         SINGULARITY_BIND = "${EASYBUILD_PREFIX}"
     }
     
