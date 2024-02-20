@@ -6,9 +6,9 @@ pipeline {
     
     environment {
         LMOD_PATH = "/opt/lmod/lmod/init/bash"
-        PREFIX = "/home/jenkins"
-        EASYBUILD_PREFIX = "${PREFIX}/easybuild"
-        SINGULARITY_CONTAINER = "${PREFIX}/containers/easybuild_container.sif"
+        LOCAL_PREFIX = "/home/jenkins"
+        EASYBUILD_PREFIX = "${LOCAL_PREFIX}/easybuild"
+        SINGULARITY_CONTAINER = "${LOCAL_PREFIX}/containers/easybuild_container.sif"
         SINGULARITY_BIND = "${EASYBUILD_PREFIX}"
     }
     
