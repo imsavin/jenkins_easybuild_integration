@@ -19,7 +19,7 @@ pipeline {
                     source ${LMOD_PATH}
                     module use ${EASYBUILD_PREFIX}/modules/all
                     module load Apptainer
-                    singularity run ${SINGULARITY_CONTAINER} $params.easyconfig --job  --job-backend-config ./gc3pie.conf -r -l --job-output-dir=${EASYBUILD_PREFIX}/job_output/
+                    singularity run ${SINGULARITY_CONTAINER} $params.easyconfig --job  --job-backend-config ${EASYBUILD_PREFIX}/gc3pie.conf -r -l --job-output-dir=${EASYBUILD_PREFIX}/job_output/
                 """
             }
         }
