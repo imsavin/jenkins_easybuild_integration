@@ -9,7 +9,7 @@ pipeline {
         LOCAL_PREFIX = "/home/jenkins"
         EASYBUILD_PREFIX = "${LOCAL_PREFIX}/easybuild"
         SINGULARITY_CONTAINER = "${LOCAL_PREFIX}/containers/easybuild_container.sif"
-        SINGULARITY_BIND = "${EASYBUILD_PREFIX},${EASYBUILD_PREFIX}/logs:/var/log"
+        SINGULARITY_BIND = "${EASYBUILD_PREFIX},${EASYBUILD_PREFIX}/logs:/var/log,${EASYBUILD_PREFIX}/desktopfiles:/usr/share/applications"
     }
     
     stages {
