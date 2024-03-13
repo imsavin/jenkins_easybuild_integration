@@ -1,0 +1,38 @@
+easyblock = 'CMakeMake'
+
+name = 'RELION'
+version = '3.1.2'
+versionsuffix = '_BBR'
+homepage = 'https://github.com/homurachan/Block-based-recontruction'
+description = """RELION (for REgularised LIkelihood OptimisatioN, pronounce rely-on) is a stand-alone computer
+ program that employs an empirical Bayesian approach to refinement of (multiple) 3D reconstructions or 2D class
+ averages in electron cryo-microscopy (cryo-EM). This module comes with  Homurachan's Block-based Reconstruction"""
+
+toolchain = {'name': 'foss', 'version': '2021b'}
+toolchainopts = {'openmp': True}
+
+source_urls = ['github.com/homurachan/Block-based-recontruction/tree/d9a7ff7602ceabccf0cdf7bda3646c3a2e56a88c/']
+sources = ['%(namelower)s-%(version)s%(versionsuffix)s.zip']
+checksums = ['2580d66088923a644bc7d3b02efd154b775a3ec3d010426f382bb3be5db9c98b']
+
+builddependencies = [('CMake', '3.22.1')]
+
+dependencies = [
+    ('X11', '20201008'),
+    ('FLTK', '1.3.7'),
+    ('LibTIFF', '4.3.0'),
+    ('tbb', '2020.3'),
+    ('CUDA', '11.3.1', '', SYSTEM),
+]
+
+configopts = "-DCMAKE_SHARED_LINKER_FLAGS='-lpthread'  -DMPI_INCLUDE_PATH=$EBROOTOPENMPI/include "
+configopts += "-DMPI_C_COMPILER=$EBROOTOPENMPI/bin/mpicc -DMPI_CXX_COMPILER=$EBROOTOPENMPI/bin/mpicxx "
+configopts += "-DCUDA=ON -DCudaTexture=ON "
+configopts += "-DALTCPU=ON -DFORCE_OWN_TBB=OFF "
+
+sanity_check_paths = {
+    'files': ['bin/relion'],
+    'dirs': []
+}
+
+moduleclass = 'bio'
