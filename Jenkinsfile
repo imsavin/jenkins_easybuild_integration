@@ -19,7 +19,7 @@ pipeline {
                     source ${LMOD_PATH}
                     module use ${EASYBUILD_PREFIX}/modules/all
                     module load Apptainer
-                    singularity run ${SINGULARITY_CONTAINER} $params.easyconfig --job  --job-backend-config ./gc3pie.conf -r -l """
+                    singularity run ${SINGULARITY_CONTAINER} $params.easyconfig --job  --job-backend-config ./gc3pie.conf -r -l --accept-eula-for=CUDA"""
             }
         }
         
