@@ -11,7 +11,7 @@ description = """RELION (for REgularised LIkelihood OptimisatioN, pronounce rely
 toolchain = {'name': 'foss', 'version': '2021b'}
 toolchainopts = {'openmp': True}
 
-source_urls = ['github.com/homurachan/Block-based-recontruction/tree/d9a7ff7602ceabccf0cdf7bda3646c3a2e56a88c/']
+source_urls = ['https://github.com/homurachan/Block-based-recontruction/tree/d9a7ff7602ceabccf0cdf7bda3646c3a2e56a88c/']
 sources = ['%(namelower)s-%(version)s%(versionsuffix)s.zip']
 
 builddependencies = [('CMake', '3.22.1')]
