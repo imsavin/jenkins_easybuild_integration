@@ -22,8 +22,14 @@ pipeline {
                     singularity run ${SINGULARITY_CONTAINER} $params.easyconfig --job --job-output-dir ${EASYBUILD_PREFIX}/job_output  --job-backend-config ./gc3pie.conf -r -l --accept-eula-for=CUDA"""
             }
         }
-        
-    }
+        stage('Cleaning') {
+            steps {
+                sh"""
+                    rm ${EASYBUILD_PREFIX}/job_output/*
+  		"""
+            }
+    	}
+     } 
      post {
           always {
             cleanWs()
