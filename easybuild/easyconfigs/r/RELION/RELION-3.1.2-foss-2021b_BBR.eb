@@ -35,6 +35,4 @@ sanity_check_paths = {
     'dirs': []
 }
 
-cuda_compute_capabilities = ['8.0']
-
 moduleclass = 'bio'
