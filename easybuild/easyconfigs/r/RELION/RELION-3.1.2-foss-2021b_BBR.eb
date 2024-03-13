@@ -3,6 +3,7 @@ easyblock = 'CMakeMake'
 name = 'RELION'
 version = '3.1.2'
 versionsuffix = '_BBR'
+_commit = 'd9a7ff7602ceabccf0cdf7bda3646c3a2e56a88c' 
 homepage = 'https://github.com/homurachan/Block-based-recontruction'
 description = """RELION (for REgularised LIkelihood OptimisatioN, pronounce rely-on) is a stand-alone computer
  program that employs an empirical Bayesian approach to refinement of (multiple) 3D reconstructions or 2D class
@@ -11,7 +12,7 @@ description = """RELION (for REgularised LIkelihood OptimisatioN, pronounce rely
 toolchain = {'name': 'foss', 'version': '2021b'}
 toolchainopts = {'openmp': True}
 
-source_urls = ['https://github.com/homurachan/Block-based-recontruction/tree/d9a7ff7602ceabccf0cdf7bda3646c3a2e56a88c/']
+source_urls = ['https://raw.githubusercontent.com/homurachan/Block-based-recontruction/{}/'.format(_commit)]
 sources = ['%(namelower)s-%(version)s%(versionsuffix)s.zip']
 
 builddependencies = [('CMake', '3.22.1')]
