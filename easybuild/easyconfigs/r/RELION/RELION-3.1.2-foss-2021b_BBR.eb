@@ -27,7 +27,7 @@ dependencies = [
 
 configopts = "-DCMAKE_SHARED_LINKER_FLAGS='-lpthread'  -DMPI_INCLUDE_PATH=$EBROOTOPENMPI/include "
 configopts += "-DMPI_C_COMPILER=$EBROOTOPENMPI/bin/mpicc -DMPI_CXX_COMPILER=$EBROOTOPENMPI/bin/mpicxx "
-configopts += "-DCUDA=ON -DCudaTexture=ON "
+configopts += "-DCUDA=ON -DCudaTexture=ON -DBUILD_WITH_CUDA_CUB=ON"
 configopts += "-DALTCPU=OFF -DFORCE_OWN_TBB=OFF "
 
 sanity_check_paths = {
