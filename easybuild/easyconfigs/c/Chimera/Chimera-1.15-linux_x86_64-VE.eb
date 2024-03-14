@@ -1,0 +1,32 @@
+# This file is an EasyBuild reciPY as per https://github.com/easybuilders/easybuild
+# Author: Pablo Escobar Lopez
+# Swiss Institute of Bioinformatics
+# Biozentrum - University of Basel
+
+name = "Chimera"
+version = "1.15"
+versionsuffix = "-VE"
+
+homepage = 'https://www.cgl.ucsf.edu/chimera/'
+description = """ UCSF Chimera is a highly extensible program for interactive visualization 
+ and analysis of molecular structures and related data, including density maps, supramolecular 
+ assemblies, sequence alignments, docking results, trajectories, and conformational ensembles. """
+
+toolchain = SYSTEM
+
+# no public download URL. Go to https://www.cgl.ucsf.edu/chimera/download.html
+sources = ['%(namelower)s-%(version)s-linux_x86_64.bin']
+
+# unzip is required to uncompress the provided .bin file
+osdependencies = ['unzip']
+
+postinstallcmds = ['cd %(installdir)s \
+                    && wget https://github.com/homurachan/Block-based-recontruction/raw/master/VolumeEraser.zip \
+                    && unzip VolumeEraser.zip && rm VolumeEraser.zip']
+
+sanity_check_paths = {
+    'files': ["bin/chimera"],
+    'dirs': []
+}
+
+moduleclass = 'bio'
