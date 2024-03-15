@@ -21,8 +21,10 @@ sources = ['%(namelower)s-%(version)s-linux_x86_64.bin']
 osdependencies = ['unzip']
 
 postinstallcmds = ['cd %(installdir)s \
-                    && wget https://github.com/homurachan/Block-based-recontruction/raw/master/VolumeEraser.zip \
-                    && unzip VolumeEraser.zip && rm VolumeEraser.zip']
+    && wget https://github.com/homurachan/Block-based-recontruction/raw/master/VolumeEraser.zip \
+    && unzip VolumeEraser.zip && rm -rf chimera/share/VolumeEraser && mv VolumeEraser chimera/share/ \
+    && rm VolumeEraser.zip'
+]
 
 sanity_check_paths = {
     'files': ["bin/chimera"],
