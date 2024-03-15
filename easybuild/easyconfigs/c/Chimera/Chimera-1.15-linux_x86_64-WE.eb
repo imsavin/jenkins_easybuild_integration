@@ -5,7 +5,6 @@
 
 name = "Chimera"
 version = "1.15"
-versionsuffix = "-VE"
 
 homepage = 'https://www.cgl.ucsf.edu/chimera/'
 description = """ UCSF Chimera is a highly extensible program for interactive visualization 
