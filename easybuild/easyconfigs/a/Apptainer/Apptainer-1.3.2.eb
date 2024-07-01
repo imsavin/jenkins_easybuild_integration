@@ -36,4 +36,4 @@ sanity_check_paths = {
     'dirs': ['bin', 'etc', 'libexec', 'var'],
 }
 
- moduleclass = 'tools'
+moduleclass = 'tools'
