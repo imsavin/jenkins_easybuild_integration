@@ -1,0 +1,39 @@
+easyblock = 'ConfigureMake'
+name = 'Apptainer'
+version = '1.3.2'
+
+
+homepage = 'https://github.com/apptainer/apptainer'
+description = """Apptainer is an open source container platform designed
+to be simple, fast, and secure.
+Many container platforms are available,
+but Apptainer is designed for
+ease-of-use on shared systems
+and in high performance computing (HPC) environments."""
+
+toolchain = SYSTEM
+
+source_urls = ['https://github.com/apptainer/apptainer/releases/download/v%s/' % version]
+
+sources = ['apptainer-%(version)s.tar.gz']
+
+builddependencies = [
+     ('Go', '1.20.4'),
+]
+
+
+skipsteps = ['configure']
+prebuildopts = './mconfig --without-suid --prefix=%(installdir)s && '
+buildopts = '-C ./builddir'
+install_cmd = 'make -C ./builddir install'
+ 
+
+modextravars = {
+}
+
+sanity_check_paths = {
+    'files': ['bin/apptainer'],
+    'dirs': ['bin', 'etc', 'libexec', 'var'],
+}
+
+ moduleclass = 'tools'
