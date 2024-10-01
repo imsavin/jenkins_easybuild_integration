@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent local
     parameters {
         string(name: "easyconfig", defaultValue: "", trim: true, description: "введите наименование изиконфига")
     }
