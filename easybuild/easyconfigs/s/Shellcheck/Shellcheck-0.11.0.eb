@@ -19,7 +19,7 @@ modextrapaths = {
 }
 
 sanity_check_paths = {
-    'files': ['shellcheck']
+    'files': ['shellcheck'],
     'dirs': []
 }
 
