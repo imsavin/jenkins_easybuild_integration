@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'Shellcheck'
+version = '0.11.0'
+
+homepage = 'https://www.shellcheck.net/'
+description = 'ShellCheck is a GPLv3 tool that gives warnings and suggestions for bash/sh shell scripts'
+
+toolchain = SYSTEM
+
+source_urls = ['https://github.com/koalaman/shellcheck/releases/download/v%(version)s/']
+sources = [
+    '%(namelower)s-v%(version)s.linux.x86_64.tar.gz',
+]
+
+
+modextrapaths = {
+    'PATH':'.',
+}
+
+sanity_check_paths = {
+    'files': ['shellcheck']
+    'dirs': []
+}
+
+moduleclass = 'tools'

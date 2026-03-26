@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'Trivy'
+version = '0.69.3'
+
+homepage = 'https://trivy.dev/'
+description = '''Trivy (pronunciation) is a comprehensive and versatile security scanner.
+ Trivy has scanners that look for security issues, and targets where it can find those issues'''
+
+toolchain = SYSTEM
+
+source_urls = ['https://github.com/aquasecurity/%(namelower)s/releases/download/v%(version)s/'] 
+sources = [
+    '%(namelower)s_%(version)s_Linux-64bit.tar.gz',
+]
+
+modextrapaths = {
+    'PATH':'.',
+}
+
+sanity_check_paths = {
+    'files': ['trivy']
+    'dirs': []
+}
+
+moduleclass = 'tools'
